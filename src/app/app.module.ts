@@ -8,6 +8,10 @@ import { FormsModule } from "@angular/forms";
 import { BooksListComponent } from "src/app/components/books-list/books-list.component";
 import { UserCollectionComponent } from './components/user-collection/user-collection.component';
 import { BookItemComponent } from "src/app/components/book-item/book-item.component";
+import { StoreModule } from "@ngrx/store";
+import { booksReducer, collectionReducer } from "src/app/state/books.reducers";
+import { BooksService } from "src/app/services/books.service";
+import { EffectsModule } from "@ngrx/effects";
 
 @NgModule({
   declarations: [
@@ -20,9 +24,11 @@ import { BookItemComponent } from "src/app/components/book-item/book-item.compon
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    StoreModule.forRoot({ books: booksReducer, collection: collectionReducer }),
+    EffectsModule.forRoot([BooksService])
   ],
-  providers: [],
+  providers: [BooksService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
