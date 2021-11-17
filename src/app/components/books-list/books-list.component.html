@@ -1,0 +1,7 @@
+<div *ngFor="let book of booksList" style="margin-bottom: 10px">
+  <app-book-item [book]="book"></app-book-item>
+  <button (click)="addToCollection()">add to collection</button>
+</div>
+
+<input type="text" [(ngModel)]="newBookTitle">
+<button (click)="addBook()">add</button>
