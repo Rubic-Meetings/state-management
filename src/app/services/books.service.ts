@@ -1,8 +1,8 @@
-import { Injectable } from "@angular/core";
-import { of } from "rxjs";
-import { setBooksList } from "src/app/state/books.actions";
-import { Actions, createEffect, ofType, ROOT_EFFECTS_INIT } from "@ngrx/effects";
-import { map, mergeMap } from "rxjs/operators";
+import { Injectable } from '@angular/core';
+import { of } from 'rxjs';
+import { setBooksList } from 'src/app/state/books.actions';
+import { Actions, createEffect, ofType, ROOT_EFFECTS_INIT } from '@ngrx/effects';
+import { map, mergeMap } from 'rxjs/operators';
 
 @Injectable()
 export class BooksService {
@@ -18,7 +18,7 @@ export class BooksService {
           { id: Math.random(), title: 'Second Book' }
         ]).pipe(map(books => {
           return setBooksList({ books });
-        }))
+        }));
       })
     )
   );

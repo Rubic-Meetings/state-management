@@ -1,5 +1,5 @@
-import { createFeatureSelector, createSelector } from "@ngrx/store";
-import { Book } from "src/app/models/Book";
+import { createFeatureSelector, createSelector } from '@ngrx/store';
+import { Book } from 'src/app/models/Book';
 
 export const booksListSelector = createFeatureSelector<Book[]>('booksList');
 
@@ -11,4 +11,4 @@ export const userBooksCollectionSelector = createSelector(
   (books, collection) => {
     return collection?.map(collectionBookId => books.find(book => book.id === collectionBookId));
   }
-)
+);

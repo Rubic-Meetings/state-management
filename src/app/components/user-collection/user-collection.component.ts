@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { Book } from "src/app/models/Book";
-import { select, Store } from "@ngrx/store";
-import { userBooksCollectionSelector } from "src/app/state/books.selectors";
-import { Observable } from "rxjs";
-import { removeBookFromCollection } from "src/app/state/books.actions";
-import { filter } from "rxjs/operators";
+import { Book } from 'src/app/models/Book';
+import { select, Store } from '@ngrx/store';
+import { userBooksCollectionSelector } from 'src/app/state/books.selectors';
+import { Observable } from 'rxjs';
+import { removeBookFromCollection } from 'src/app/state/books.actions';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-user-collection',
