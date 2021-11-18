@@ -14,11 +14,11 @@ export class BooksService {
       mergeMap(() => {
         // API call
         return of([
-          { id: 0, title: 'First book' },
-          { id: 1, title: 'Second Book' }
+          { id: Math.random(), title: 'First book' },
+          { id: Math.random(), title: 'Second Book' }
         ]).pipe(map(books => {
           return setBooksList({ books });
-        }))
+        }));
       })
     )
   );

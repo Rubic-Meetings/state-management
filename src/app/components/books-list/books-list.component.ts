@@ -19,22 +19,24 @@ export class BooksListComponent {
 
   constructor(private store: Store) {
     this.booksList$ = this.store.pipe(
-      select(booksSelector),
+      select(booksListSelector),
       filter(value => value !== undefined),
       tap(books => this.booksLength = books.length)
     );
   }
 
   public addBook(): void {
-    this.store.dispatch(addBook({
-      id: this.booksLength,
-      title: this.newBookTitle
+    this.store.dispatch(addBookToList({
+      book: {
+        id: this.booksLength,
+        title: this.newBookTitle
+      }
     }));
 
     this.newBookTitle = '';
   }
 
   public addToCollection(book: Book): void {
-    this.store.dispatch(addBookToCollection({id: book.id}));
+    this.store.dispatch(addBookToCollection({ id: book.id }));
   }
 }

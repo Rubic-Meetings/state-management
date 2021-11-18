@@ -9,7 +9,7 @@ import { BooksListComponent } from 'src/app/components/books-list/books-list.com
 import { UserCollectionComponent } from './components/user-collection/user-collection.component';
 import { BookItemComponent } from "src/app/components/book-item/book-item.component";
 import { StoreModule } from "@ngrx/store";
-import { booksReducer, collectionReducer } from "src/app/state/books.reducers";
+import { booksListReducer, userCollectionReducer } from "src/app/state/books.reducers";
 import { BooksService } from "src/app/services/books.service";
 import { EffectsModule } from "@ngrx/effects";
 
@@ -25,7 +25,7 @@ import { EffectsModule } from "@ngrx/effects";
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    StoreModule.forRoot({ books: booksReducer, collection: collectionReducer }),
+    StoreModule.forRoot({ booksList: booksListReducer, userCollection: userCollectionReducer }),
     EffectsModule.forRoot([BooksService])
   ],
   providers: [BooksService],

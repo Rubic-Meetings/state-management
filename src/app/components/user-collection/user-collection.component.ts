@@ -11,11 +11,11 @@ import { filter } from "rxjs/operators";
   templateUrl: './user-collection.component.html'
 })
 export class UserCollectionComponent {
-  public booksCollection$: Observable<Book[]>;
+  public userBooksCollection$: Observable<Book[]>;
 
   constructor(private store: Store) {
-    this.booksCollection$ = this.store.pipe(
-      select(booksCollectionSelector),
+    this.userBooksCollection$ = this.store.pipe(
+      select(userBooksCollectionSelector),
       filter(value => value !== undefined)
     );
   }
