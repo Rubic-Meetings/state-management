@@ -7,11 +7,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { BooksListComponent } from 'src/app/components/books-list/books-list.component';
 import { UserCollectionComponent } from './components/user-collection/user-collection.component';
-import { BookItemComponent } from "src/app/components/book-item/book-item.component";
-import { StoreModule } from "@ngrx/store";
-import { booksListReducer, userCollectionReducer } from "src/app/state/books.reducers";
-import { BooksService } from "src/app/services/books.service";
-import { EffectsModule } from "@ngrx/effects";
+import { BookItemComponent } from 'src/app/components/book-item/book-item.component';
+import { BooksService } from 'src/app/services/books.service';
+import { BooksListState, UserCollectionState } from 'src/app/state/books.state';
+import { NgxsModule } from '@ngxs/store';
 
 @NgModule({
   declarations: [
@@ -25,8 +24,7 @@ import { EffectsModule } from "@ngrx/effects";
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    StoreModule.forRoot({ booksList: booksListReducer, userCollection: userCollectionReducer }),
-    EffectsModule.forRoot([BooksService])
+    NgxsModule.forRoot([BooksListState, UserCollectionState])
   ],
   providers: [BooksService],
   bootstrap: [AppComponent]

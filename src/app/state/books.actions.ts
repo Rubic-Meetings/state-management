@@ -1,22 +1,25 @@
-import { createAction, props } from '@ngrx/store';
 import { Book } from 'src/app/models/Book';
 
-export const setBooksList = createAction(
-  '[Books List] Set Books List',
-  props<{ books: Book[] }>()
-);
+export class SetBooksList {
+  public static readonly type = '[Book List] Set Books List';
 
-export const addBookToList = createAction(
-  '[Books List] Add Book To List',
-  props<{ book: Book }>()
-);
+  constructor() {}
+}
 
-export const addBookToCollection = createAction(
-  '[User Collection] Add Book To Collection',
-  props<{ id: number }>()
-);
+export class AddBookToList {
+  public static readonly type = '[Book List] Add Book To List';
 
-export const removeBookFromCollection = createAction(
-  '[User Collection] Remove Book From Collection',
-  props<{ id: number }>()
-);
+  constructor(public book: Book) {}
+}
+
+export class AddBookToCollection {
+  public static readonly type = '[Collection List] Add Book To Collection';
+
+  constructor(public book: Book) {}
+}
+
+export class RemoveBookFromCollection {
+  public static readonly type = '[Collection List] Remove Book From Collection';
+
+  constructor(public book: Book) {}
+}
