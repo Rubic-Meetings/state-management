@@ -9,8 +9,4 @@ export class BookItemComponent {
   @Input() book: Book;
 
   constructor() {}
-
-  checkTodoItem(): void {
-    // do nothing
-  }
 }

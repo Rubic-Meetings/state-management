@@ -1,13 +1,13 @@
 import { createFeatureSelector, createSelector } from "@ngrx/store";
 import { Book } from "src/app/models/Book";
 
-export const booksSelector = createFeatureSelector<Book[]>('books');
+export const booksListSelector = createFeatureSelector<Book[]>('booksList');
 
-const collectionSelector = createFeatureSelector<number[]>('collection');
+const userCollectionSelector = createFeatureSelector<number[]>('userCollection');
 
-export const booksCollectionSelector = createSelector(
-  booksSelector,
-  collectionSelector,
+export const userBooksCollectionSelector = createSelector(
+  booksListSelector,
+  userCollectionSelector,
   (books, collection) => {
     return collection?.map(collectionBookId => books.find(book => book.id === collectionBookId));
   }

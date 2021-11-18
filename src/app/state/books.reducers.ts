@@ -1,28 +1,28 @@
-import { createReducer, on } from "@ngrx/store";
-import { addBook, addBookToCollection, removeBookFromCollection, setBooksList } from "src/app/state/books.actions";
-import { Book } from "src/app/models/Book";
+import { createReducer, on } from '@ngrx/store';
+import { addBookToList, addBookToCollection, removeBookFromCollection, setBooksList } from 'src/app/state/books.actions';
+import { Book } from 'src/app/models/Book';
 
-const booksInitialState: Book[] = undefined;
+const booksListInitialState: Book[] = undefined;
 
-export const booksReducer = createReducer(
-  booksInitialState,
+export const booksListReducer = createReducer(
+  booksListInitialState,
   on(setBooksList, (state, { books }) => books),
-  on(addBook, (state, book) => {
-    return state.concat(book)
+  on(addBookToList, (state, { book }) => {
+    return state.concat(book);
   })
-)
+);
 
-const collectionInitialState: number[] = [];
+const userCollectionInitialState: number[] = [];
 
-export const collectionReducer = createReducer(
-  collectionInitialState,
-  on(addBookToCollection, (state, book) => {
-    if (state.includes(book.id)) {
+export const userCollectionReducer = createReducer(
+  userCollectionInitialState,
+  on(addBookToCollection, (state, { id: bookId }) => {
+    if (state.includes(bookId)) {
       return state;
     }
-    return state.concat(book.id)
+    return state.concat(bookId);
   }),
-  on(removeBookFromCollection, (state, book) => {
-    return state.filter(collectionBookId => collectionBookId !== book.id);
+  on(removeBookFromCollection, (state, { id: bookId }) => {
+    return state.filter(collectionBookId => collectionBookId !== bookId);
   }),
-)
+);

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Book } from "src/app/models/Book";
 import { select, Store } from "@ngrx/store";
-import { booksCollectionSelector } from "src/app/state/books.selectors";
+import { userBooksCollectionSelector } from "src/app/state/books.selectors";
 import { Observable } from "rxjs";
 import { removeBookFromCollection } from "src/app/state/books.actions";
 import { filter } from "rxjs/operators";
@@ -11,11 +11,11 @@ import { filter } from "rxjs/operators";
   templateUrl: './user-collection.component.html'
 })
 export class UserCollectionComponent {
-  public booksCollection$: Observable<Book[]>;
+  public userBooksCollection$: Observable<Book[]>;
 
   constructor(private store: Store) {
-    this.booksCollection$ = this.store.pipe(
-      select(booksCollectionSelector),
+    this.userBooksCollection$ = this.store.pipe(
+      select(userBooksCollectionSelector),
       filter(value => value !== undefined)
     );
   }
