@@ -2,8 +2,10 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Book } from 'src/app/models/Book';
 
-@Injectable()
-export class BooksService {
+@Injectable({
+  providedIn: 'root'
+})
+export class BooksApiService {
   constructor() {}
 
   public loadBooks(): Observable<Book[]> {

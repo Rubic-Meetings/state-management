@@ -8,9 +8,6 @@ import { FormsModule } from '@angular/forms';
 import { BooksListComponent } from 'src/app/components/books-list/books-list.component';
 import { UserCollectionComponent } from './components/user-collection/user-collection.component';
 import { BookItemComponent } from 'src/app/components/book-item/book-item.component';
-import { BooksService } from 'src/app/services/books.service';
-import { BooksListState, UserCollectionState } from 'src/app/state/books.state';
-import { NgxsModule } from '@ngxs/store';
 
 @NgModule({
   declarations: [
@@ -23,10 +20,9 @@ import { NgxsModule } from '@ngxs/store';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule,
-    NgxsModule.forRoot([BooksListState, UserCollectionState])
+    FormsModule
   ],
-  providers: [BooksService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
