@@ -8,7 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { BooksListComponent } from 'src/app/components/books-list/books-list.component';
 import { UserCollectionComponent } from './components/user-collection/user-collection.component';
 import { BookItemComponent } from 'src/app/components/book-item/book-item.component';
-import { BooksService } from 'src/app/services/books.service';
+import { BooksApiService } from 'src/app/services/books-api.service';
 import { BooksListState, UserCollectionState } from 'src/app/state/books.state';
 import { NgxsModule } from '@ngxs/store';
 
@@ -26,7 +26,7 @@ import { NgxsModule } from '@ngxs/store';
     FormsModule,
     NgxsModule.forRoot([BooksListState, UserCollectionState])
   ],
-  providers: [BooksService],
+  providers: [BooksApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

@@ -1,7 +1,7 @@
 import { Book } from 'src/app/models/Book';
 import { Action, NgxsOnInit, State, StateContext } from '@ngxs/store';
 import { Injectable } from '@angular/core';
-import { BooksService } from 'src/app/services/books.service';
+import { BooksApiService } from 'src/app/services/books-api.service';
 import { tap } from 'rxjs/operators';
 import { AddBookToCollection, AddBookToList, RemoveBookFromCollection, SetBooksList } from 'src/app/state/books.actions';
 
@@ -11,7 +11,7 @@ import { AddBookToCollection, AddBookToList, RemoveBookFromCollection, SetBooksL
 })
 @Injectable()
 export class BooksListState implements NgxsOnInit {
-  constructor(private bookService: BooksService) {}
+  constructor(private bookService: BooksApiService) {}
 
   ngxsOnInit({ dispatch }: StateContext<Book[]>) {
     dispatch(SetBooksList);

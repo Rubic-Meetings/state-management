@@ -3,7 +3,7 @@ import { Observable, of } from 'rxjs';
 import { Book } from 'src/app/models/Book';
 
 @Injectable()
-export class BooksService {
+export class BooksApiService {
   constructor() {}
 
   public loadBooks(): Observable<Book[]> {
