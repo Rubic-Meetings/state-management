@@ -5,7 +5,7 @@ import { Actions, createEffect, ofType, ROOT_EFFECTS_INIT } from '@ngrx/effects'
 import { map, mergeMap } from 'rxjs/operators';
 
 @Injectable()
-export class BooksService {
+export class BooksApiService {
   constructor(private actions$: Actions) {}
 
   private loadBooks$ = createEffect(() =>

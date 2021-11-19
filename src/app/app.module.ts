@@ -10,7 +10,7 @@ import { UserCollectionComponent } from './components/user-collection/user-colle
 import { BookItemComponent } from "src/app/components/book-item/book-item.component";
 import { StoreModule } from "@ngrx/store";
 import { booksListReducer, userCollectionReducer } from "src/app/state/books.reducers";
-import { BooksService } from "src/app/services/books.service";
+import { BooksApiService } from "src/app/services/books-api.service";
 import { EffectsModule } from "@ngrx/effects";
 
 @NgModule({
@@ -26,9 +26,9 @@ import { EffectsModule } from "@ngrx/effects";
     HttpClientModule,
     FormsModule,
     StoreModule.forRoot({ booksList: booksListReducer, userCollection: userCollectionReducer }),
-    EffectsModule.forRoot([BooksService])
+    EffectsModule.forRoot([BooksApiService])
   ],
-  providers: [BooksService],
+  providers: [BooksApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
