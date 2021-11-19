@@ -6,10 +6,7 @@ import { Book } from 'src/app/models/Book';
   templateUrl: './user-collection.component.html'
 })
 export class UserCollectionComponent {
-  public booksCollection: Book[] = [{
-    id: 1,
-    title: 'Fuck you'
-  }];
+  public booksCollection: Book[];
 
   constructor() { }
 
