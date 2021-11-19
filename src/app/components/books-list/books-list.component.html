@@ -1,6 +1,6 @@
-<div *ngFor="let book of booksList" style="margin-bottom: 10px">
+<div *ngFor="let book of (booksList$ | async)" style="margin-bottom: 10px">
   <app-book-item [book]="book"></app-book-item>
-  <button (click)="addToCollection()">add to collection</button>
+  <button (click)="addToCollection(book)">add to collection</button>
 </div>
 
 <input type="text" [(ngModel)]="newBookTitle">

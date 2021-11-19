@@ -1,4 +1,4 @@
-<div *ngFor="let book of booksCollection" style="margin-bottom: 10px">
+<div *ngFor="let book of (userBooksCollection$ | async)" style="margin-bottom: 10px">
   <app-book-item [book]="book"></app-book-item>
   <button (click)="removeBook(book)">remove from collection</button>
 </div>
